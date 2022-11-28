@@ -1,7 +1,7 @@
 <h1 align="center">
     <img alt="Login-Page" title="Login-Page" src=".github/logo.png" width="200px" />
     <h4 align="center">Compartilhamento de arquivos de forma fácil e rápida</h4>
-    <br/>
+    <hr/>
     <h4 align="center"> 
     🚀 Aplicação em construida para SECOMP 2022 🚀
     </h4>
