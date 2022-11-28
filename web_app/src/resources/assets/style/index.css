@@ -119,8 +119,8 @@ button {
 }
 
 .load svg{
-    width: 160px !important;
-    height: 160px !important;
+    width: 140px !important;
+    height: 140px !important;
 }
 
 .header {
@@ -174,6 +174,10 @@ button {
     box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.25);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+.button_opacity{
+    background: rgba(0, 133, 255, 0.5) !important;
 }
 
 .width_up {

@@ -20,6 +20,7 @@ export default function Upload() {
     };
 
     const [file, setFile]: any = React.useState();
+    const [load, setLoad]: any = React.useState(false);
     const [er, setEr]: any = React.useState();
     const [percent, setPercent]: any = React.useState('0%');
     const [status, setStatus]: any = React.useState();
@@ -48,7 +49,8 @@ export default function Upload() {
         setPercent(`${Math.round(percent)}%`);
     };
 
-    const handleSubmit = async ()=>{
+    const handleSubmit = async () => {
+        setLoad(true);
         sessionStorage.setItem("envia-key", `${uuidv4()}${fileName}`);
         const session = sessionStorage.getItem("envia-key");
         const formData = new FormData();
@@ -56,12 +58,14 @@ export default function Upload() {
         formData.append("key", String(session))
         formData.append("archive", file);
 
-       axios.post('http://192.168.0.114:4040/api/upload', formData).then((res)=>{
-            if(res.data) {
-                document.location.href = `/upload/${res.data.key}`
+        axios.post('http://192.168.0.114:4040/api/upload', formData).then((res) => {
+            if (res.data) {
+                document.location.href = `/upload/${res.data.key}`;
+
+                setLoad(false);
             }
-        }).catch(e=>{
-            if(e) setEr('Ocorreu um problema no upload!');
+        }).catch(e => {
+            if (e) setEr('Ocorreu um problema no upload!');
         })
     }
 
@@ -75,7 +79,7 @@ export default function Upload() {
                     />
                 </div>
                 <h2>Clique ou arraste seu arquivo</h2>
-                <p style={{color: "red"}}>{er}</p>
+                <p style={{ color: "red" }}>{er}</p>
             </div>
             {
                 openProgress ?
@@ -95,12 +99,21 @@ export default function Upload() {
             }
             <span className='status_bytes'>{status}</span>
             {
-                percent === '100%' &&
-                <Link to="#" className='button_box' onClick={handleSubmit}>
-                    <div className='button width_up'>
-                        <span>Compartilhar</span>
-                    </div>
-                </Link>
+                percent === '100%' && (
+                    load ?
+                        <Link to="#" className='button_box ' onClick={handleSubmit}>
+                            <div className='button width_up button_opacity'>
+                                <span>Aguarde ...</span>
+                            </div>
+                        </Link>
+                        :
+                        <Link to="#" className='button_box' onClick={handleSubmit}>
+                            <div className='button width_up'>
+                                <span>Compartilhar</span>
+                            </div>
+                        </Link>
+                )
+
             }
             <Link to='/' className='to_home'>
                 <IoIosPlay />
