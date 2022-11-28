@@ -7,10 +7,22 @@ import { HiOutlineClipboardCopy } from 'react-icons/hi';
 import './share.css';
 
 export default function Share() {
-    const id = useParams().id;
+    const id: string = String(useParams().id);
 
-    const handleClipBoard = async ()=>{
+    const handleClipBoard = async () => {
+        
+        share();
         await navigator.clipboard.writeText(document.location.href);
+    }
+
+    const share = async () => {
+        await navigator.share({
+            title: 'envia ai',
+            text: 'Dowload de arquivo',
+            url: document.location.href,
+        })
+            .then(() => console.log('Successful share'))
+            .catch((error) => console.log('Error sharing', error));
     }
 
     return (
@@ -19,7 +31,7 @@ export default function Share() {
                 <span>{document.location.href}</span>
                 <HiOutlineClipboardCopy onClick={handleClipBoard} />
             </div>
-            <Link to="#" className='button_box' onClick={()=>{
+            <Link to="#" className='button_box' onClick={() => {
                 document.location.href = `http://192.168.0.114:4040/api/download/${id}`
             }}>
                 <div className='button width_up'>

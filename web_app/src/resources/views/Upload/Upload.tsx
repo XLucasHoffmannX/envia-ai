@@ -19,15 +19,15 @@ export default function Upload() {
         }
     };
 
-    const [file, setFile]: any = React.useState();
-    const [load, setLoad]: any = React.useState(false);
-    const [er, setEr]: any = React.useState();
-    const [percent, setPercent]: any = React.useState('0%');
-    const [status, setStatus]: any = React.useState();
-    const [fileName, setFileName]: any = React.useState();
-    const [openProgress, setOpenProgress]: any = React.useState(false);
-    const uploadRef: any = React.useRef();
-    const progressRef: any = React.useRef();
+    const [openProgress, setOpenProgress] = React.useState<boolean>(false);
+    const [load, setLoad] = React.useState<boolean>(false);
+    const [error, setError] = React.useState<string>();
+    const [file, setFile] = React.useState<Blob|any>();
+    const [percent, setPercent] = React.useState<string>('0%');
+    const [status, setStatus] = React.useState<string>();
+    const [fileName, setFileName] = React.useState<string>();
+    const uploadRef = React.useRef<any>();
+    const progressRef = React.useRef<any>();
 
     const UploadFile = () => {
         const file = uploadRef.current.files[0];
@@ -65,7 +65,7 @@ export default function Upload() {
                 setLoad(false);
             }
         }).catch(e => {
-            if (e) setEr('Ocorreu um problema no upload!');
+            if (e) setError('Ocorreu um problema no upload!');
         })
     }
 
@@ -79,7 +79,7 @@ export default function Upload() {
                     />
                 </div>
                 <h2>Clique ou arraste seu arquivo</h2>
-                <p style={{ color: "red" }}>{er}</p>
+                <p style={{ color: "red" }}>{error}</p>
             </div>
             {
                 openProgress ?

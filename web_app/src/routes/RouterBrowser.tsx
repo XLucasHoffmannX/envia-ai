@@ -15,7 +15,7 @@ export default function RouteBrowser() {
         rendererSettings: {
             preserveAspectRatio: "xMidYMid slice"
         }
-    };
+    };    
 
     return (
         <Router>
