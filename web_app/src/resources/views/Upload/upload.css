@@ -1,0 +1,97 @@
+.drop_box{
+    border: 1px dashed var(--text-secondary);
+    width: min(100%, 500px);
+    height: 300px;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.drop_box input{
+    position: absolute;
+    z-index: 9999;
+    width: min(90%, 500px);
+    height: 300px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.drop_box h2{
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 1rem;
+}
+
+.drop_box_animation svg{ 
+    width: 250px !important;
+}
+
+.progress_box{
+    border: 1px dashed var(--text-secondary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    animation: up 1s;
+}
+
+.progress_box svg{
+    font-size: 34px;
+    color: var(--yellow);
+}
+
+.control_progress{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.control_progress_info{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    margin-bottom: .3rem;
+}
+
+.control_progress_name{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.progress{
+    width: 100%;
+    height: 10px;
+    border-radius: 6px;
+    background: var(--grey);
+}
+
+.progress_controller{
+    background: var(--green);
+    height: 100%;
+    border-radius: 6px;
+}
+
+.status_bytes{
+    font-size: 15px;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+}
