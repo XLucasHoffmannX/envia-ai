@@ -16,6 +16,13 @@ app.use(cors());
 
 // routes
 app.use('/api', require('./routes/uploadRoute'));
+app.use('/', (req, res)=>{
+    res.json({msg: 'OK'})
+});
+
+app.use('/teste', (req, res)=>{
+    res.json({msg: 'error'})
+});
 
 (async () => {
     const database = require('./db/database');
