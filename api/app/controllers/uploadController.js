@@ -22,7 +22,7 @@ const uploadController = {
 
         if (!archives) return res.status(400).json({ msg: 'Não existe esse arquivo no envia ai' });
 
-        return res.json(archives)
+        return res.json(archives);
     },
 
     download: async (req, res) => {

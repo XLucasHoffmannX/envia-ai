@@ -15,10 +15,9 @@ app.use(cors());
 
 (async () => {
     const database = require('./db/database');
-    const Archive = require('./app/model/Archives');
  
     try {
-        const resultado = await database.sync();
+       await database.sync();
     } catch (error) {
         console.log(error);
     }
@@ -28,6 +27,9 @@ app.use(cors());
 app.use('/api', require('./routes/uploadRoute'));
 app.use('/', (req, res)=>{
     res.json({msg: 'OK'})
+});
+app.use('/teste', (req, res)=>{
+    res.json({msg: 'error'})
 });
 
 // listen
