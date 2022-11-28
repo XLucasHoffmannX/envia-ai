@@ -26,6 +26,9 @@ app.use(cors());
 
 // routes
 app.use('/api', require('./routes/uploadRoute'));
+app.use('/', (req, res)=>{
+    res.json({msg: 'OK'})
+});
 
 // listen
 //connectDB();
