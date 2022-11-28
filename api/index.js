@@ -13,15 +13,6 @@ app.use(express.json());
 app.use(express.urlencoded( { extended: false } ));
 app.use(cors());
 
-(async () => {
-    const database = require('./db/database');
- 
-    try {
-       await database.sync();
-    } catch (error) {
-        console.log(error);
-    }
-})();
 
 // routes
 app.use('/api', require('./routes/uploadRoute'));
@@ -31,6 +22,16 @@ app.use('/', (req, res)=>{
 app.use('/teste', (req, res)=>{
     res.json({msg: 'error'})
 });
+
+(async () => {
+    const database = require('./db/database');
+ 
+    try {
+       await database.sync();
+    } catch (error) {
+        console.log(error);
+    }
+})();
 
 // listen
 //connectDB();
