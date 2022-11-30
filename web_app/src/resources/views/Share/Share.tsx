@@ -32,7 +32,7 @@ export default function Share() {
                 <HiOutlineClipboardCopy onClick={handleClipBoard} />
             </div>
             <Link to="#" className='button_box' onClick={() => {
-                document.location.href = `http://192.168.0.114:4040/api/download/${id}`
+                document.location.href = `http://localhost:4040/api/download/${id}`
             }}>
                 <div className='button width_up'>
                     <span>Download</span>

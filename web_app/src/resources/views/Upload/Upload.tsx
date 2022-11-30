@@ -58,7 +58,7 @@ export default function Upload() {
         formData.append("key", String(session))
         formData.append("archive", file);
 
-        axios.post('http://192.168.0.114:4040/api/upload', formData).then((res) => {
+        axios.post('http://localhost:4040/api/upload', formData).then((res) => {
             if (res.data) {
                 document.location.href = `/upload/${res.data.key}`;
 
