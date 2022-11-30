@@ -4,7 +4,6 @@ const express = require('express');
 const cors = require('cors');
 
 // depencies interns
-//const connectDB = require('./config/connectDB');
 // app 
 const app = express();
 
@@ -36,5 +35,5 @@ app.use('/teste', (req, res)=>{
 
 // listen
 //connectDB();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4040;
 app.listen(PORT, console.log(`Server in on port ${PORT}`))

@@ -34,7 +34,7 @@
     "workbox-streams": "^6.4.2"
   },
   "scripts": {
-    "start": "react-scripts HTTPS=true  start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
